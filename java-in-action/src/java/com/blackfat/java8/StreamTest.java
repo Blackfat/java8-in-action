@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -67,6 +68,23 @@ public class StreamTest {
                     System.out.println("filter: " + s);
                     return true;
                 }) .forEach(s -> System.out.println("forEach: " + s));;
+    }
+
+
+    @Test
+    public void stream5(){
+        List<String> words = Arrays.asList("java8","lambada","action");
+
+        List<String> list = words.stream().map(w -> w.split(""))
+                       // 可以将单个流内容合并起来扁平化成一个流
+                      .flatMap(Arrays::stream)
+                      .distinct()
+                      .collect(Collectors.toList());
+
+        for(Object o: list){
+            System.out.print(o);
+        }
+
     }
 
 
