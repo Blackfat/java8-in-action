@@ -14,6 +14,8 @@ public class Dish {
 
     public enum Type{MEAT, FISH, OTHER}
 
+    public enum CaloricLevel { DIET, NORMAL, FAT }
+
     public Dish(String name, boolean vegetarian, int calories, Type type) {
         this.name = name;
         this.vegetarian = vegetarian;
@@ -51,5 +53,10 @@ public class Dish {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
